@@ -4,32 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Toby Zerna | Data & Finance Portfolio</title>
+    <title>Bundle 01 | Toby Zerna</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #1f2937;
             background: #f8fafc;
         }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Navigation */
+        a { color: #2563eb; }
 
         nav {
             position: sticky;
@@ -39,128 +25,25 @@
             border-bottom: 1px solid #e5e7eb;
             backdrop-filter: blur(10px);
         }
-
         .nav-container {
-            max-width: 1100px;
+            max-width: 800px;
             margin: auto;
             padding: 18px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #4b5563;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #111827;
-        }
-
-        /* General layout */
+        .logo { font-size: 20px; font-weight: 700; color: #1f2937; text-decoration: none; }
+        .back-link { font-size: 14px; color: #4b5563; text-decoration: none; }
+        .back-link:hover { color: #111827; }
 
         .container {
-            max-width: 1100px;
+            max-width: 800px;
             margin: auto;
-            padding: 0 25px;
+            padding: 60px 25px 100px;
         }
 
-        section {
-            padding: 90px 0;
-        }
-
-        /* Hero */
-
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content {
-            max-width: 750px;
-        }
-
-        .eyebrow {
-            color: #2563eb;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: clamp(48px, 8vw, 82px);
-            line-height: 1;
-            letter-spacing: -3px;
-            color: #111827;
-            margin-bottom: 25px;
-        }
-
-        .hero h2 {
-            font-size: clamp(22px, 3vw, 32px);
-            font-weight: 400;
-            color: #4b5563;
-            margin-bottom: 25px;
-        }
-
-        .hero-description {
-            max-width: 650px;
-            font-size: 18px;
-            color: #6b7280;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        .button-primary {
-            background: #111827;
-            color: white;
-        }
-
-        .button-primary:hover {
-            background: #374151;
-        }
-
-        .button-secondary {
-            border: 1px solid #d1d5db;
-            background: white;
-        }
-
-        .button-secondary:hover {
-            background: #f3f4f6;
-        }
-
-        /* Section headings */
-
-        .section-label {
+        .case-label {
             color: #2563eb;
             font-size: 13px;
             font-weight: 700;
@@ -169,96 +52,35 @@
             margin-bottom: 10px;
         }
 
-        .section-title {
-            font-size: 38px;
+        h1 {
+            font-size: clamp(32px, 5vw, 46px);
             letter-spacing: -1px;
-            margin-bottom: 20px;
             color: #111827;
+            margin-bottom: 24px;
         }
 
-        .section-intro {
-            max-width: 650px;
-            color: #6b7280;
-            margin-bottom: 40px;
-        }
-
-        /* About */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .about-text p {
-            margin-bottom: 18px;
-            color: #4b5563;
-        }
-
-        /* Projects */
-
-        .projects {
-            background: white;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 30px;
-            background: #f8fafc;
-            transition: 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: #cbd5e1;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-        }
-
-        .project-number {
-            color: #2563eb;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .project-card h3 {
-            font-size: 23px;
-            margin-bottom: 16px;
-            color: #111827;
-        }
-
-        /* Every card follows this same order:
-           number/tag -> heading -> image -> description -> tags -> link */
-        .project-thumb {
+        /* Same order as the homepage card: label -> heading -> image -> tags -> body text */
+        .case-image {
             width: 100%;
-            aspect-ratio: 16 / 10;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
             border-radius: 8px;
-            margin-bottom: 16px;
-            background: #e5e7eb; /* shows as a grey placeholder box until a real image is added */
+            border: 1px solid #e5e7eb;
+            background: #e5e7eb;
+            margin-bottom: 10px;
         }
-
-        .project-card p {
+        figcaption {
+            font-size: 13px;
             color: #6b7280;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .tags {
+        .meta {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 18px;
+            margin-bottom: 32px;
         }
-
         .tag {
             padding: 5px 10px;
             border-radius: 20px;
@@ -267,75 +89,26 @@
             font-size: 12px;
         }
 
-        .project-link {
-            display: inline-block;
-            margin-top: auto;
-            font-weight: 600;
-            font-size: 14px;
-            color: #2563eb;
+        .case-content h2 {
+            font-size: 22px;
+            color: #111827;
+            margin: 40px 0 14px;
+        }
+        .case-content p {
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+        .case-content ul, .case-content ol {
+            color: #4b5563;
+            margin: 0 0 16px 20px;
         }
 
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Skills */
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill {
-            padding: 12px 18px;
-            background: white;
+        .case-content img {
+            width: 100%;
+            border-radius: 8px;
             border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            font-weight: 600;
-            color: #374151;
+            margin: 24px 0 6px;
         }
-
-        /* Contact */
-
-        .contact {
-            background: #111827;
-            color: white;
-        }
-
-        .contact .section-label {
-            color: #93c5fd;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact p {
-            color: #d1d5db;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .contact-link {
-            padding: 12px 18px;
-            border: 1px solid #4b5563;
-            border-radius: 8px;
-            color: white;
-            transition: 0.2s;
-        }
-
-        .contact-link:hover {
-            background: #374151;
-        }
-
-        /* Footer */
 
         footer {
             background: #111827;
@@ -345,509 +118,62 @@
             padding: 25px;
             font-size: 13px;
         }
-
-        /* Mobile */
-
-        @media (max-width: 700px) {
-            .nav-links {
-                display: none;
-            }
-
-            .about-grid,
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 65px 0;
-            }
-
-            h1 {
-                letter-spacing: -2px;
-            }
-        }
     </style>
 </head>
-
 <body>
-
-    <!-- Navigation -->
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Toby Zerna</a>
-
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <a href="../index.html" class="logo">Toby Zerna</a>
+            <a href="../index.html#projects" class="back-link">&larr; back to projects</a>
         </div>
     </nav>
 
+    <div class="container">
 
-    <!-- Hero -->
+        <div class="case-label">Bundle 01 &middot; Data Visualisation</div>
+        <h1>Bundle 01</h1>
 
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
+        <img src="../assets/bundle-01-hero.png"
+             alt="Main chart or dashboard for Bundle 01"
+             class="case-image">
+        <figcaption>Caption describing what this main image shows.</figcaption>
 
-                <div class="eyebrow">
-                    Finance • Economics • Data
-                </div>
-
-                <h1>
-                    Toby Zerna
-                </h1>
-
-                <h2>
-                    Turning data into clear, useful insights.
-                </h2>
-
-                <p class="hero-description">
-                    I'm a finance and economics student interested in macroeconomics,
-                    financial markets and data visualisation. This portfolio
-                    showcases projects I've worked on and the tools I use
-                    to understand data.
-                </p>
-
-                <div class="buttons">
-                    <a href="#projects" class="button button-primary">
-                        View Projects
-                    </a>
-
-                    <a href="https://github.com/tobyzerna"
-                       class="button button-secondary"
-                       target="_blank">
-                        GitHub
-                    </a>
-                </div>
-
-            </div>
+        <div class="meta">
+            <span class="tag">Data Visualisation</span>
+            <span class="tag">Python</span>
         </div>
-    </section>
 
+        <div class="case-content">
 
-    <!-- About -->
-
-    <section id="about">
-        <div class="container">
-
-            <div class="section-label">
-                About
-            </div>
-
-            <h2 class="section-title">
-                A little about me...
-            </h2>
-
-            <div class="about-grid">
-
-                <div class="about-text">
-                    <p>
-                        I'm currently doing a bachelor of business, 
-                        with a major in finance and economics.
-                    </p>
-
-                    <p>
-                        I'm interested in how data can be used to problem 
-                        solve within the financial markets, 
-                        businesses and the broader economy
-                    </p>
-
-                    <p>
-                        This website is a collection of my projects,
-                        analysis and work as I continue developing my
-                        technical and analytical skills.
-                    </p>
-                </div>
-
-                <div>
-                    <h3>
-                        <strong>Current focus</strong>
-                    </h3>
-
-                    <p>
-                        Data visualisation, economics, statistical
-                        analysis and developing skills with R, Python,
-                        Excel, Refinitiv and other analytical tools.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Current Projects -->
-
-    <section id="projects" class="projects">
-        <div class="container">
-
-            <div class="section-label">
-                Portfolio
-            </div>
-
-            <h2 class="section-title">
-                Featured Projects
-            </h2>
-
-            <p class="section-intro">
-                A selection of data analysis and visualisation projects.
-                More projects will be added as I continue developing
-                my skills.
-            </p>
-
-
-            <div class="project-grid">
-
-                <!-- Project 1 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        BUNDLE 01
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/bundle-01-thumb.png"
-                         alt="Preview chart from the Bundle 01 data visualisation exercise"
-                         class="project-thumb">
-
-                    <p>
-                        Data Visualisation portfolio exercises.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Data Visualisation</span>
-                        <span class="tag">Python</span>
-                    </div>
-
-                    <a href="projects/bundle-01.html" class="project-link">View case study →</a>
-
-                </div>
-
-
-                <!-- Project 2 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        BUNDLE 02
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/bundle-02-thumb.png"
-                         alt="Preview chart from the Bundle 02 data visualisation exercise"
-                         class="project-thumb">
-
-                    <p>
-                        Data Visualisation portfolio exercises.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Data Visualisation</span>
-                        <span class="tag">Python</span>
-                    </div>
-
-                    <a href="projects/bundle-02.html" class="project-link">View case study →</a>
-
-                </div>
-
-
-                <!-- Project 3 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        BUNDLE 03
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/bundle-03-thumb.png"
-                         alt="Preview chart from the Bundle 03 data visualisation exercise"
-                         class="project-thumb">
-
-                    <p>
-                        Data Visualisation portfolio exercises.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Future Project</span>
-                    </div>
-
-                    <a href="projects/bundle-03.html" class="project-link">View case study →</a>
-
-                </div>
-
-
-                <!-- Project 4 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        BUNDLE 04
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/bundle-04-thumb.png"
-                         alt="Preview chart from the Bundle 04 data visualisation exercise"
-                         class="project-thumb">
-
-                    <p>
-                        Data Visualisation portfolio exercises.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Future Project</span>
-                    </div>
-
-                    <a href="projects/bundle-04.html" class="project-link">View case study →</a>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Previous Projects -->
-    <section id="previous-projects" class="previous-projects">
-        <div class="container">
-
-            <h2 class="section-title">
-                Previous Projects
-            </h2>
-
-            <p class="section-intro">
-                Previous projects illustrating my ability to forecast, analyse stocks,
-                and allocate portfolios.
-                Tools used in these projects include Rstudio, LSEG Workspace and Excel.
-            </p>
-
-
-            <div class="project-grid">
-
-                <!-- Project 1 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        Forecasting
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/forecasting-thumb.png"
-                         alt="Preview chart from the forecasting project"
-                         class="project-thumb">
-
-                    <p>
-                        Forecasting and quantitative analysis.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Data Visualisation</span>
-                        <span class="tag">R</span>
-                        <span class="tag">Economic Forecast</span>
-                    </div>
-
-                    <a href="projects/forecasting.html" class="project-link">View case study →</a>
-
-                </div>
-
-
-                <!-- Project 2 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        Portfolio Creation
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/portfolio-creation-thumb.png"
-                         alt="Preview chart from the portfolio creation project"
-                         class="project-thumb">
-
-                    <p>
-                        Equity Investment and Portfolio Management.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Financial Analysis</span>
-                        <span class="tag">Excel</span>
-                        <span class="tag">Portfolio Management</span>
-                    </div>
-
-                    <a href="projects/portfolio-creation.html" class="project-link">View case study →</a>
-
-                </div>
-
-
-                <!-- Project 3 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        Multilinear Regression
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/multilinear-regression-thumb.png"
-                         alt="Preview chart from the multilinear regression project"
-                         class="project-thumb">
-
-                    <p>
-                        Basic Econometrics.
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">R</span>
-                        <span class="tag">Statistical Analysis</span>
-                    </div>
-
-                    <a href="projects/multilinear-regression.html" class="project-link">View case study →</a>
-
-                </div>
-
-
-                <!-- Project 4 -->
-
-                <div class="project-card">
-
-                    <div class="project-number">
-                        Coming soon
-                    </div>
-
-                    <h3>
-                        Work in progress...
-                    </h3>
-
-                    <img src="assets/coming-soon-thumb.png"
-                         alt="Placeholder for an upcoming project"
-                         class="project-thumb">
-
-                    <p>
-                        ...
-                    </p>
-
-                    <div class="tags">
-                        <span class="tag">Past Project</span>
-                    </div>
-
-                    <a href="projects/coming-soon.html" class="project-link">View case study →</a>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    
-    
-    <!-- Skills -->
-
-    <section id="skills">
-        <div class="container">
-
-            <div class="section-label">
-                Skills
-            </div>
-
-            <h2 class="section-title">
-                Tools & Technologies
-            </h2>
-
-            <p class="section-intro">
-                Technologies and analytical tools I'm currently learning
-                or have experience with.
-            </p>
-
-            <div class="skills-grid">
-                <span class="skill">Python</span>
-                <span class="skill">R</span>
-                <span class="skill">Excel</span>
-                <span class="skill">LSEG Workspace</span>   
-                <span class="skill">Data Visualisation</span>
-                <span class="skill">Statistics</span>
-                <span class="skill">Financial Analysis</span>
-                <span class="skill">GitHub</span>
-            </div> 
-
-        </div>
-    </section>
-
-
-    <!-- Contact -->
-
-    <section id="contact" class="contact">
-        <div class="container">
-
-            <div class="section-label">
-                Contact
-            </div>
-
-            <h2 class="section-title">
-                Let's connect.
-            </h2>
-
+            <h2>Overview</h2>
             <p>
-                I'm always interested in connecting with people working
-                in finance, economics, data and analytics.
+                What this project is, what question it answers, and what dataset
+                you used.
             </p>
 
-            <div class="contact-links">
+            <h2>Approach</h2>
+            <p>
+                How you built it: tools, cleaning steps, chart types chosen and why.
+            </p>
 
-                <a
-                    href="https://github.com/tobyzerna"
-                    target="_blank"
-                    class="contact-link">
-                    GitHub
-                </a>
+            <h2>Findings</h2>
+            <p>
+                What the visualisation revealed, and why it matters.
+            </p>
 
-                <a
-                    href="https://www.linkedin.com/"
-                    target="_blank"
-                    class="contact-link">
-                    LinkedIn
-                </a>
-
-            </div>
+            <h2>Reflection</h2>
+            <p>
+                What you'd do differently, or what you learned.
+            </p>
 
         </div>
-    </section>
 
-
-    <!-- Footer -->
+    </div>
 
     <footer>
-        © 2026 Toby Zerna. Built with HTML & CSS and hosted on GitHub Pages.
+        &copy; 2026 Toby Zerna. Built with HTML &amp; CSS and hosted on GitHub Pages.
     </footer>
 
 </body>
 </html>
-
