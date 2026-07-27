@@ -213,6 +213,8 @@
             padding: 30px;
             background: #f8fafc;
             transition: 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -230,8 +232,19 @@
 
         .project-card h3 {
             font-size: 23px;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             color: #111827;
+        }
+
+        /* Every card follows this same order:
+           number/tag -> heading -> image -> description -> tags -> link */
+        .project-thumb {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            background: #e5e7eb; /* shows as a grey placeholder box until a real image is added */
         }
 
         .project-card p {
@@ -243,6 +256,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-bottom: 18px;
         }
 
         .tag {
@@ -251,6 +265,18 @@
             background: #e5e7eb;
             color: #374151;
             font-size: 12px;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: auto;
+            font-weight: 600;
+            font-size: 14px;
+            color: #2563eb;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
         }
 
         /* Skills */
@@ -439,7 +465,7 @@
 
                 <div>
                     <h3>
-                        Current focus
+                        <strong>Current focus</strong>
                     </h3>
 
                     <p>
@@ -489,6 +515,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/bundle-01-thumb.png"
+                         alt="Preview chart from the Bundle 01 data visualisation exercise"
+                         class="project-thumb">
+
                     <p>
                         Data Visualisation portfolio exercises.
                     </p>
@@ -497,6 +527,8 @@
                         <span class="tag">Data Visualisation</span>
                         <span class="tag">Python</span>
                     </div>
+
+                    <a href="projects/bundle-01.html" class="project-link">View case study →</a>
 
                 </div>
 
@@ -513,6 +545,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/bundle-02-thumb.png"
+                         alt="Preview chart from the Bundle 02 data visualisation exercise"
+                         class="project-thumb">
+
                     <p>
                         Data Visualisation portfolio exercises.
                     </p>
@@ -521,6 +557,8 @@
                         <span class="tag">Data Visualisation</span>
                         <span class="tag">Python</span>
                     </div>
+
+                    <a href="projects/bundle-02.html" class="project-link">View case study →</a>
 
                 </div>
 
@@ -537,6 +575,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/bundle-03-thumb.png"
+                         alt="Preview chart from the Bundle 03 data visualisation exercise"
+                         class="project-thumb">
+
                     <p>
                         Data Visualisation portfolio exercises.
                     </p>
@@ -544,6 +586,8 @@
                     <div class="tags">
                         <span class="tag">Future Project</span>
                     </div>
+
+                    <a href="projects/bundle-03.html" class="project-link">View case study →</a>
 
                 </div>
 
@@ -560,6 +604,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/bundle-04-thumb.png"
+                         alt="Preview chart from the Bundle 04 data visualisation exercise"
+                         class="project-thumb">
+
                     <p>
                         Data Visualisation portfolio exercises.
                     </p>
@@ -567,6 +615,8 @@
                     <div class="tags">
                         <span class="tag">Future Project</span>
                     </div>
+
+                    <a href="projects/bundle-04.html" class="project-link">View case study →</a>
 
                 </div>
 
@@ -576,7 +626,7 @@
     </section>
 
     <!-- Previous Projects -->
-    <section id="previous projects" class="previous projects">
+    <section id="previous-projects" class="previous-projects">
         <div class="container">
 
             <h2 class="section-title">
@@ -604,6 +654,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/forecasting-thumb.png"
+                         alt="Preview chart from the forecasting project"
+                         class="project-thumb">
+
                     <p>
                         Forecasting and quantitative analysis.
                     </p>
@@ -613,6 +667,8 @@
                         <span class="tag">R</span>
                         <span class="tag">Economic Forecast</span>
                     </div>
+
+                    <a href="projects/forecasting.html" class="project-link">View case study →</a>
 
                 </div>
 
@@ -629,6 +685,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/portfolio-creation-thumb.png"
+                         alt="Preview chart from the portfolio creation project"
+                         class="project-thumb">
+
                     <p>
                         Equity Investment and Portfolio Management.
                     </p>
@@ -638,6 +698,8 @@
                         <span class="tag">Excel</span>
                         <span class="tag">Portfolio Management</span>
                     </div>
+
+                    <a href="projects/portfolio-creation.html" class="project-link">View case study →</a>
 
                 </div>
 
@@ -654,6 +716,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/multilinear-regression-thumb.png"
+                         alt="Preview chart from the multilinear regression project"
+                         class="project-thumb">
+
                     <p>
                         Basic Econometrics.
                     </p>
@@ -662,6 +728,8 @@
                         <span class="tag">R</span>
                         <span class="tag">Statistical Analysis</span>
                     </div>
+
+                    <a href="projects/multilinear-regression.html" class="project-link">View case study →</a>
 
                 </div>
 
@@ -678,6 +746,10 @@
                         Work in progress...
                     </h3>
 
+                    <img src="assets/coming-soon-thumb.png"
+                         alt="Placeholder for an upcoming project"
+                         class="project-thumb">
+
                     <p>
                         ...
                     </p>
@@ -685,6 +757,8 @@
                     <div class="tags">
                         <span class="tag">Past Project</span>
                     </div>
+
+                    <a href="projects/coming-soon.html" class="project-link">View case study →</a>
 
                 </div>
 
