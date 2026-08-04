@@ -171,6 +171,24 @@
             margin: 70px 0 60px;
         }
 
+        .task-title {
+            font-size: clamp(24px, 4vw, 32px);
+            letter-spacing: -0.5px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .task-image {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #e5e7eb;
+            margin-bottom: 10px;
+        }
+
         footer {
             background: #111827;
             border-top: 1px solid #374151;
@@ -192,7 +210,7 @@
 
     <div class="container">
 
-        <div class="case-label">Hand-Drawn Data Visualisation</div>
+        <div class="case-label">Part II &middot; Hand-Drawn Data Visualisation</div>
         <h1>Draw it Like Playfair, Minard and Nightingale</h1>
         <p class="post-date">Posted [Month Day, Year]</p>
 
@@ -281,13 +299,13 @@
 
         <hr class="task-divider">
 
-        <div class="case-label">Visual Perception & Colour</div>
-        <h1>Gestalt</h1>
+        <div class="case-label">Task 2 &middot; Part I &middot; Visual Perception & Colour</div>
+        <h2 class="task-title">Gestalt</h2>
         <p class="post-date">Posted [Month Day, Year]</p>
 
         <img src="../assets/gestalt-hero.png"
              alt="Original published data visualisation chosen for this exercise"
-             class="case-image">
+             class="task-image">
         <figcaption>Image source: [Author Surname, Year] &mdash; see reference below.</figcaption>
 
         <div class="meta">
@@ -342,5 +360,4 @@
     </footer>
 
 </body>
-</html>
 </html>
