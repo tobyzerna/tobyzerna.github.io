@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Forecasting | Toby Zerna</title>
+    <title>Forecasting Canadian Visitor Arrivals | Toby Zerna</title>
 
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -56,13 +56,18 @@
             font-size: clamp(32px, 5vw, 46px);
             letter-spacing: -1px;
             color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .post-date {
+            font-size: 14px;
+            color: #6b7280;
             margin-bottom: 24px;
         }
 
-        /* Same order as the homepage card: label -> heading -> image -> tags -> body text */
         .case-image {
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 423 / 167;
             object-fit: cover;
             border-radius: 8px;
             border: 1px solid #e5e7eb;
@@ -102,6 +107,9 @@
             color: #4b5563;
             margin: 0 0 16px 20px;
         }
+        .case-content li {
+            margin-bottom: 8px;
+        }
 
         .case-content img {
             width: 100%;
@@ -125,19 +133,20 @@
     <nav>
         <div class="nav-container">
             <a href="../index.html" class="logo">Toby Zerna</a>
-            <a href="../index.html#previous-projects" class="back-link">&larr; back to projects</a>
+            <a href="../index.html#projects" class="back-link">&larr; back to projects</a>
         </div>
     </nav>
 
     <div class="container">
 
-        <div class="case-label">Previous Project &middot; Forecasting</div>
-        <h1>Forecasting</h1>
+        <div class="case-label">Forecasting &middot; Time Series Analysis</div>
+        <h1>Forecasting Canadian Visitor Arrivals to Australia</h1>
+        <p class="post-date">Posted [Month Day, Year]</p>
 
-        <img src="../assets/forecasting-hero.png"
-             alt="Main chart or dashboard for Forecasting"
+        <img src="../assets/forecasting-hero.jpg"
+             alt="Forecast comparison between the seasonal naive, ARIMA and ETS models"
              class="case-image">
-        <figcaption>Caption describing what this main image shows.</figcaption>
+        <figcaption>Forecast comparison of the seasonal naive, ARIMA and ETS models against the held-out test period.</figcaption>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
@@ -149,23 +158,75 @@
 
             <h2>Overview</h2>
             <p>
-                What this project is, what question it answers, and what dataset
-                you used.
+                For this assessment I forecasted monthly Canadian visitor arrivals to Australia,
+                using a dataset spanning 1991 to 2019. The series shows a clear long-run upward
+                trend combined with strong seasonality, peaking every year during the Australian
+                summer (January to March) as Canadians travel to escape their winter, with a
+                smaller secondary peak in July. The goal was to build and compare several
+                forecasting models, then determine which one produced the most reliable
+                forecasts.
             </p>
 
             <h2>Approach</h2>
             <p>
-                How you built it: tools, cleaning steps, chart types chosen and why.
+                I started by visually inspecting the raw series, which showed the seasonal
+                amplitude increasing over time alongside the trend, meaning the variance wasn't
+                constant. To fix this, I applied a log transformation, which stabilised the
+                seasonal variance and is easier to interpret than a Box-Cox transformation, since
+                log-transformed values roughly translate to percentage changes.
+            </p>
+            <p>
+                With the transformed series, I checked ACF plots to work out what differencing
+                was needed to make the data stationary. First differencing removed the trend but
+                left strong seasonal autocorrelation behind, so I applied a seasonal difference
+                on top, which brought the series close to stationary.
+            </p>
+            <p>
+                From there I built three models and compared them:
+            </p>
+            <ul>
+                <li>
+                    <strong>Seasonal naive</strong> &mdash; used as a simple benchmark, forecasting
+                    each month by repeating the same month's value from the previous year.
+                </li>
+                <li>
+                    <strong>ARIMA</strong> &mdash; an auto-selected ARIMA(3,0,0)(2,1,1)[12] model
+                    with drift, fitted on the log-transformed series.
+                </li>
+                <li>
+                    <strong>ETS</strong> &mdash; an auto-selected ETS(M,A,M) model, using
+                    multiplicative error and seasonality to match the way the seasonal swings grow
+                    alongside the level of the series.
+                </li>
+            </ul>
+            <p>
+                Each model's residuals were checked for white noise using ACF plots, residual
+                histograms and the Ljung-Box test, since a model that leaves patterns in its
+                residuals is missing structure it should be capturing. I then split the data into
+                a training set (up to 2017) and a test set (2018&ndash;2019), generated forecasts
+                from all three models over the test period, and compared their accuracy using MAE
+                and MAPE.
             </p>
 
             <h2>Findings</h2>
             <p>
-                What the visualisation revealed, and why it matters.
+                The seasonal naive benchmark left significant autocorrelation unexplained in its
+                residuals, confirming a more sophisticated model was needed. Between ARIMA and
+                ETS, ARIMA came out ahead on every measure: its residuals passed the Ljung-Box
+                test (p-value of 0.664, consistent with white noise), while ETS's residuals failed
+                it (p-value of 0.006). On the test set, ARIMA also produced the lowest forecast
+                error, with a MAE of 1,110 and a MAPE of 7.03%, while ETS performed worse than even
+                the simple seasonal naive benchmark.
             </p>
 
             <h2>Reflection</h2>
             <p>
-                What you'd do differently, or what you learned.
+                This project reinforced that a model looking reasonable on a plot isn't enough on
+                its own, the real test is whether its residuals actually behave like white noise
+                and whether it holds up on data it hasn't seen. It was a good reminder that a
+                more complex model, like ETS in this case, doesn't automatically outperform a
+                simpler one, and that comparing models properly means checking diagnostics and
+                out-of-sample accuracy rather than picking based on which fit looks best on paper.
             </p>
 
         </div>
