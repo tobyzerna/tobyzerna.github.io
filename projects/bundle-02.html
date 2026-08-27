@@ -56,10 +56,15 @@
             font-size: clamp(32px, 5vw, 46px);
             letter-spacing: -1px;
             color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .post-date {
+            font-size: 14px;
+            color: #6b7280;
             margin-bottom: 24px;
         }
 
-        /* Same order as the homepage card: label -> heading -> image -> tags -> body text */
         .case-image {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -94,6 +99,11 @@
             color: #111827;
             margin: 40px 0 14px;
         }
+        .case-content h3 {
+            font-size: 17px;
+            color: #111827;
+            margin: 24px 0 10px;
+        }
         .case-content p {
             color: #4b5563;
             margin-bottom: 16px;
@@ -102,12 +112,153 @@
             color: #4b5563;
             margin: 0 0 16px 20px;
         }
+        .case-content li {
+            margin-bottom: 8px;
+        }
 
         .case-content img {
             width: 100%;
             border-radius: 8px;
             border: 1px solid #e5e7eb;
             margin: 24px 0 6px;
+        }
+
+        /* Side-by-side comparison (reproduction vs reconstruction, etc.) */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 20px 0 6px;
+        }
+        .comparison-grid figure { margin: 0; }
+        .comparison-grid img { margin: 0 0 6px; }
+        @media (max-width: 600px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+
+        .references {
+            padding-left: 0;
+            list-style: none;
+        }
+        .references li {
+            color: #4b5563;
+            margin-bottom: 14px;
+            text-indent: -2em;
+            padding-left: 2em;
+        }
+
+        .task-divider {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 70px 0 60px;
+        }
+
+        .task-title {
+            font-size: clamp(24px, 4vw, 32px);
+            letter-spacing: -0.5px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .task-image {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #e5e7eb;
+            margin-bottom: 10px;
+        }
+
+        /* Data verification / datacard tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+            font-size: 14px;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 10px;
+            text-align: left;
+            color: #4b5563;
+        }
+        .data-table th {
+            background: #f1f5f9;
+            color: #111827;
+            font-weight: 700;
+        }
+
+        /* Skills grid */
+        .skills-section h3 {
+            font-size: 15px;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 28px 0 12px;
+        }
+        .skill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .skill-pill {
+            padding: 10px 16px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #374151;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .skill-level {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 20px;
+        }
+        .skill-level.developing { background: #fef3c7; color: #92400e; }
+        .skill-level.experienced { background: #dbeafe; color: #1e40af; }
+        .skill-level.expert { background: #dcfce7; color: #166534; }
+
+        .certificate-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            background: white;
+        }
+        .certificate-card span {
+            color: #4b5563;
+            font-size: 14px;
+        }
+        .certificate-card a {
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .ai-acknowledgment {
+            background: #f1f5f9;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin: 20px 0;
+        }
+        .ai-acknowledgment p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .ai-acknowledgment p:last-child {
+            margin-bottom: 0;
         }
 
         footer {
@@ -131,41 +282,291 @@
 
     <div class="container">
 
-        <div class="case-label">Bundle 01 &middot; Data Visualisation</div>
-        <h1>Bundle 01</h1>
+        <!-- ================= TASK 1: MODULE 3 — HOWMUCH.NET ANALYSIS ================= -->
 
-        <img src="../assets/bundle-01-hero.png"
-             alt="Main chart or dashboard for Bundle 01"
+        <div class="case-label">Task 1 &middot; Module 3 &middot; Data Source Verification</div>
+        <h1>Interrogating a Published Visualisation</h1>
+        <p class="post-date">Posted [Month Day, Year]</p>
+
+        <img src="../assets/bundle-02-howmuch-hero.jpg"
+             alt="Original data visualisation selected from HowMuch.net"
              class="case-image">
-        <figcaption>Caption describing what this main image shows.</figcaption>
+        <figcaption>Image source: [Author/Publisher, Year] &mdash; see reference below.</figcaption>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
-            <span class="tag">Python</span>
+            <span class="tag">Source Verification</span>
+        </div>
+
+        <div class="case-content">
+
+            <h2>Objective</h2>
+            <p>
+                Summarise, in your own words, the objective of this exercise: selecting a published
+                visualisation from HowMuch.net, tracking down its original data source(s), and
+                critically evaluating the accuracy and quality of both the data and the design.
+            </p>
+
+            <h2>Original Data Source</h2>
+            <p>
+                Explain how you tracked down the original data source(s) behind the chosen
+                visualisation, including the exact dataset and time period. Note any difficulty
+                you had, given HowMuch.net's limited source attribution, and how you resolved it
+                (e.g. finding an equivalent source).
+            </p>
+            <ul class="references">
+                <li>
+                    Author, A. A. (Year). <em>Title of the original data source</em>. Publisher/Organisation.
+                    URL
+                </li>
+            </ul>
+
+            <h2>Variables &amp; Levels of Measurement</h2>
+            <p>
+                List each variable visually encoded in the original visualisation, along with its
+                unit and level of measurement (nominal, ordinal, interval, or ratio).
+            </p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Unit</th>
+                        <th>Level of Measurement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Variable name</td>
+                        <td>Unit</td>
+                        <td>Nominal / Ordinal / Interval / Ratio</td>
+                    </tr>
+                    <tr>
+                        <td>Variable name</td>
+                        <td>Unit</td>
+                        <td>Nominal / Ordinal / Interval / Ratio</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Data &amp; Question Alignment (Trifecta Checkup)</h2>
+            <p>
+                Discuss whether the data used aligns well with the question the original
+                visualisation is trying to answer, using the Trifecta Checkup framework (question,
+                data, visual). Does the data actually support the question being asked, or is there
+                a mismatch?
+            </p>
+
+            <h2>Accuracy Verification</h2>
+            <p>
+                Discuss the process of cross-checking the visually encoded values against the
+                original source data. Note whether you were able to verify all values, and detail
+                any discrepancies found &mdash; were they minor (e.g. rounding) or more serious
+                (e.g. errors)? Could the discrepancies be explained (e.g. later data corrections)?
+                State your overall confidence in the visualisation's data accuracy.
+            </p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Value in Visualisation</th>
+                        <th>Value in Source Data</th>
+                        <th>Match?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Row 2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Source Quality</h2>
+            <p>
+                Discuss whether you consider the original data source(s) reputable, and note any
+                limitations of the data that an audience should be aware of (e.g. sample size,
+                methodology, potential bias, currency of the data).
+            </p>
+
+            <h2>References</h2>
+            <ul class="references">
+                <li>
+                    Author, A. A. (Year). <em>Title of the HowMuch.net visualisation</em>. HowMuch.net.
+                    URL
+                </li>
+                <li>
+                    Author, A. A. (Year). <em>Title of the underlying data source</em>. Publisher/Organisation.
+                    URL
+                </li>
+            </ul>
+
+        </div>
+
+        <hr class="task-divider">
+
+        <!-- ================= TASK 2: TECHNICAL SKILLS ================= -->
+
+        <div class="case-label">Task 2 &middot; Technical Skills</div>
+        <h2 class="task-title">My Technical Skills</h2>
+        <p class="post-date">Posted [Month Day, Year]</p>
+
+        <div class="meta">
+            <span class="tag">DataCamp</span>
+            <span class="tag">Skills</span>
+        </div>
+
+        <div class="case-content skills-section">
+
+            <h2>Overview</h2>
+            <p>
+                A summary of the tools, languages, and platforms I'm developing skills in, along
+                with the level of experience I honestly hold in each and the certifications I've
+                completed to support them.
+            </p>
+
+            <h3>Programming Languages</h3>
+            <div class="skill-grid">
+                <div class="skill-pill">Python <span class="skill-level developing">Developing</span></div>
+                <div class="skill-pill">R <span class="skill-level developing">Developing</span></div>
+            </div>
+
+            <h3>Software &amp; Platforms</h3>
+            <div class="skill-grid">
+                <div class="skill-pill">Excel <span class="skill-level experienced">Experienced</span></div>
+                <div class="skill-pill">LSEG Workspace <span class="skill-level developing">Developing</span></div>
+                <div class="skill-pill">GitHub <span class="skill-level developing">Developing</span></div>
+            </div>
+
+            <h3>Data Visualisation</h3>
+            <div class="skill-grid">
+                <div class="skill-pill">Data Visualisation <span class="skill-level developing">Developing</span></div>
+                <div class="skill-pill">Statistical Analysis <span class="skill-level developing">Developing</span></div>
+            </div>
+
+            <h3>Hobbies</h3>
+            <div class="skill-grid">
+                <div class="skill-pill">Add a personal touch here</div>
+            </div>
+
+            <h2>DataCamp Certifications</h2>
+            <p>
+                Completed as part of Module 4's required training.
+            </p>
+            <div class="certificate-card">
+                <span>Introduction to the Tidyverse / Introduction to Python for Data Science</span>
+                <a href="#" target="_blank">View certificate &rarr;</a>
+            </div>
+            <div class="certificate-card">
+                <span>Introduction to Data Visualization with ggplot2 / Matplotlib</span>
+                <a href="#" target="_blank">View certificate &rarr;</a>
+            </div>
+
+            <h2>Evidence in Practice</h2>
+            <p>
+                Skills demonstrated in action across this portfolio:
+            </p>
+            <ul>
+                <li><a href="forecasting.html">Forecasting Canadian Visitor Arrivals</a> &mdash; time series analysis in R</li>
+                <li><a href="bundle-01.html">Draw it Like Playfair, Minard and Nightingale</a> &mdash; data visualisation and design principles</li>
+            </ul>
+
+        </div>
+
+        <hr class="task-divider">
+
+        <!-- ================= TASK 3: MODULE 5 — MASTER VISUALISATION REPRODUCTION ================= -->
+
+        <div class="case-label">Task 3 &middot; Module 5 &middot; Reproduction &amp; Recolour</div>
+        <h2 class="task-title">Reproducing a Master Visualisation</h2>
+        <p class="post-date">Posted [Month Day, Year]</p>
+
+        <img src="../assets/bundle-02-master-hero.jpg"
+             alt="Master data visualisation chosen for reproduction"
+             class="task-image">
+        <figcaption>Master visualisation source: [Author, Year] &mdash; see reference below.</figcaption>
+
+        <div class="meta">
+            <span class="tag">Data Visualisation</span>
+            <span class="tag">Colour Theory</span>
         </div>
 
         <div class="case-content">
 
             <h2>Overview</h2>
             <p>
-                What this project is, what question it answers, and what dataset
-                you used.
+                Summarise, in your own words, which visualisation you chose to reproduce as your
+                "master" visualisation, why you chose it, and what the exercise involved: an exact
+                reproduction, followed by a reconstruction using an alternative, more responsible
+                colour scale.
             </p>
 
-            <h2>Approach</h2>
+            <h2>Datacard</h2>
             <p>
-                How you built it: tools, cleaning steps, chart types chosen and why.
+                A summary of the original data source used to build the reproduction.
+            </p>
+            <table class="data-table">
+                <tbody>
+                    <tr><th>Title</th><td></td></tr>
+                    <tr><th>Source</th><td></td></tr>
+                    <tr><th>Time period</th><td></td></tr>
+                    <tr><th>Variables</th><td></td></tr>
+                    <tr><th>Unit(s) of measurement</th><td></td></tr>
+                    <tr><th>Access date</th><td></td></tr>
+                    <tr><th>Notes/limitations</th><td></td></tr>
+                </tbody>
+            </table>
+
+            <h2>Reproduction</h2>
+            <p>
+                My reproduction of the master visualisation, replicating the original's structure
+                and exact colour codes as closely as possible.
+            </p>
+            <img src="../assets/bundle-02-reproduction.jpg" alt="Reproduction of the master visualisation">
+            <figcaption>Reproduction of the original, matching its colour scheme.</figcaption>
+
+            <h2>Reconstruction &mdash; Alternative Colour Scale</h2>
+            <p>
+                The same visualisation, reconstructed using an alternative colour scale that follows
+                responsible use of colour guidelines (e.g. colourblind-safe, perceptually uniform,
+                avoiding misleading colour associations).
+            </p>
+            <img src="../assets/bundle-02-reconstruction.jpg" alt="Reconstruction with alternative colour scale">
+            <figcaption>Reconstruction using an alternative, more accessible colour scale.</figcaption>
+
+            <h2>Colour Scale Rationale</h2>
+            <p>
+                Explain how you developed your alternative colour scale: what guidelines you
+                followed, what problems (if any) existed with the original's colour choices, and
+                why your new scale is more responsible or accessible.
             </p>
 
-            <h2>Findings</h2>
-            <p>
-                What the visualisation revealed, and why it matters.
-            </p>
+            <h2>Acknowledgment of AI Tool Use</h2>
+            <div class="ai-acknowledgment">
+                <p>
+                    If generative AI tools were used at any stage of this exercise, acknowledge
+                    their use here in line with the RMIT Library's guidelines, including which tool
+                    was used, for what purpose, and to what extent.
+                </p>
+            </div>
 
-            <h2>Reflection</h2>
-            <p>
-                What you'd do differently, or what you learned.
-            </p>
+            <h2>References</h2>
+            <ul class="references">
+                <li>
+                    Author, A. A. (Year). <em>Title of the master visualisation</em>. Publisher/Site Name.
+                    URL
+                </li>
+                <li>
+                    Company/Tool Name. (Year). <em>Name of the AI tool</em> (Version) [Large language model]. URL
+                </li>
+            </ul>
 
         </div>
 
