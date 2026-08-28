@@ -246,6 +246,36 @@
             font-weight: 600;
         }
 
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 0 0 12px;
+        }
+        .cert-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+        .cert-card img {
+            width: 100%;
+            display: block;
+            border-bottom: 1px solid #e5e7eb;
+            margin: 0;
+            border-radius: 0;
+        }
+        .cert-caption {
+            padding: 12px 14px;
+            font-size: 13px;
+            color: #4b5563;
+        }
+        .cert-caption strong {
+            display: block;
+            color: #111827;
+            margin-bottom: 2px;
+        }
+
         .ai-acknowledgment {
             background: #f1f5f9;
             border: 1px solid #e5e7eb;
@@ -285,13 +315,13 @@
         <!-- ================= TASK 1: MODULE 3 — HOWMUCH.NET ANALYSIS ================= -->
 
         <div class="case-label">Task 1 &middot; Module 3 &middot; Data Source Verification</div>
-        <h1>Interrogating a Published Visualisation</h1>
-        <p class="post-date">Posted [Month Day, Year]</p>
+        <h1>Where the Money Is: Interrogating a Published Visualisation</h1>
+        <p class="post-date">Posted August 28th, 2026</p>
 
         <img src="../assets/bundle-02-howmuch-hero.jpg"
-             alt="Original data visualisation selected from HowMuch.net"
+             alt="Visualizing the richest cities in the US, from HowMuch.net"
              class="case-image">
-        <figcaption>Image source: [Author/Publisher, Year] &mdash; see reference below.</figcaption>
+        <figcaption>Image source: Irena (2020) &mdash; see reference below.</figcaption>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
@@ -302,30 +332,26 @@
 
             <h2>Objective</h2>
             <p>
-                Summarise, in your own words, the objective of this exercise: selecting a published
-                visualisation from HowMuch.net, tracking down its original data source(s), and
-                critically evaluating the accuracy and quality of both the data and the design.
+                The objective of this exercise was to select a published visualisation from
+                HowMuch.net, track down the original data source behind it, and critically
+                evaluate the accuracy and quality of both the underlying data and the design
+                choices used to present it.
             </p>
 
             <h2>Original Data Source</h2>
             <p>
-                Explain how you tracked down the original data source(s) behind the chosen
-                visualisation, including the exact dataset and time period. Note any difficulty
-                you had, given HowMuch.net's limited source attribution, and how you resolved it
-                (e.g. finding an equivalent source).
+                The chosen visualisation, "Visualizing the Richest Cities in the US," is sourced
+                from a U.S. Bureau of Economic Analysis report on gross domestic product by
+                metropolitan area.
             </p>
             <ul class="references">
                 <li>
-                    Author, A. A. (Year). <em>Title of the original data source</em>. Publisher/Organisation.
-                    URL
+                    U.S. Bureau of Economic Analysis. (2018, September 18). <em>Gross domestic product by metropolitan area</em>.
+                    https://www.bea.gov/sites/default/files/2018-09/gdp_metro0918_0.pdf
                 </li>
             </ul>
 
             <h2>Variables &amp; Levels of Measurement</h2>
-            <p>
-                List each variable visually encoded in the original visualisation, along with its
-                unit and level of measurement (nominal, ordinal, interval, or ratio).
-            </p>
             <table class="data-table">
                 <thead>
                     <tr>
@@ -336,75 +362,60 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Variable name</td>
-                        <td>Unit</td>
-                        <td>Nominal / Ordinal / Interval / Ratio</td>
+                        <td>Metro area</td>
+                        <td>City name</td>
+                        <td>Qualitative &mdash; Nominal (fixed label, no order)</td>
                     </tr>
                     <tr>
-                        <td>Variable name</td>
-                        <td>Unit</td>
-                        <td>Nominal / Ordinal / Interval / Ratio</td>
+                        <td>GDP</td>
+                        <td>US Dollars</td>
+                        <td>Quantitative &mdash; Continuous</td>
+                    </tr>
+                    <tr>
+                        <td>Rank (Top 10 list)</td>
+                        <td>Position 1&ndash;10</td>
+                        <td>Quantitative &mdash; Ordinal (orders cities without showing size of difference)</td>
                     </tr>
                 </tbody>
             </table>
 
-            <h2>Data &amp; Question Alignment (Trifecta Checkup)</h2>
+            <h2>Data &amp; Question Alignment</h2>
             <p>
-                Discuss whether the data used aligns well with the question the original
-                visualisation is trying to answer, using the Trifecta Checkup framework (question,
-                data, visual). Does the data actually support the question being asked, or is there
-                a mismatch?
+                There is strong alignment between the question and the data. The question being
+                asked is which US metro areas contribute the most to national economic output.
+                The data from the Bureau of Economic Analysis answers this directly, by listing
+                the GDP of each US metro area.
             </p>
 
             <h2>Accuracy Verification</h2>
             <p>
-                Discuss the process of cross-checking the visually encoded values against the
-                original source data. Note whether you were able to verify all values, and detail
-                any discrepancies found &mdash; were they minor (e.g. rounding) or more serious
-                (e.g. errors)? Could the discrepancies be explained (e.g. later data corrections)?
-                State your overall confidence in the visualisation's data accuracy.
+                There are a few discrepancies with the source of this
+                data. The visualisation states that the data is from 2018, however the last time
+                this data was collected on the bea.gov website was from 2017, published in
+                September 2018. The HowMuch.net website has a link to the data at the bottom of
+                the page, however this is also unavailable, as the page states "docs.google.com
+                refused to connect." Going by the latest data available, there are several errors
+                in the data and the rankings are incorrect, so it can be assumed that the exact
+                dataset used to create this visualisation is no longer available and cannot be
+                fully verified.
             </p>
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Value in Visualisation</th>
-                        <th>Value in Source Data</th>
-                        <th>Match?</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Row 1</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Row 2</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
 
             <h2>Source Quality</h2>
             <p>
-                Discuss whether you consider the original data source(s) reputable, and note any
-                limitations of the data that an audience should be aware of (e.g. sample size,
-                methodology, potential bias, currency of the data).
+                Despite the missing dataset used to create the visualisation, the quality of the
+                source is still reputable, as the Bureau of Economic Analysis is a government
+                agency.
             </p>
 
             <h2>References</h2>
             <ul class="references">
                 <li>
-                    Author, A. A. (Year). <em>Title of the HowMuch.net visualisation</em>. HowMuch.net.
-                    URL
+                    Irena. (2020, September 21). <em>Visualizing the richest cities in the US</em>. HowMuch.net.
+                    https://howmuch.net/articles/richest-cities-in-the-us
                 </li>
                 <li>
-                    Author, A. A. (Year). <em>Title of the underlying data source</em>. Publisher/Organisation.
-                    URL
+                    U.S. Bureau of Economic Analysis. (2018, September 18). <em>Gross domestic product by metropolitan area</em>.
+                    https://www.bea.gov/sites/default/files/2018-09/gdp_metro0918_0.pdf
                 </li>
             </ul>
 
@@ -416,7 +427,7 @@
 
         <div class="case-label">Task 2 &middot; Technical Skills</div>
         <h2 class="task-title">My Technical Skills</h2>
-        <p class="post-date">Posted [Month Day, Year]</p>
+        <p class="post-date">Posted August 28th, 2026</p>
 
         <div class="meta">
             <span class="tag">DataCamp</span>
@@ -435,49 +446,42 @@
             <h3>Programming Languages</h3>
             <div class="skill-grid">
                 <div class="skill-pill">Python <span class="skill-level developing">Developing</span></div>
-                <div class="skill-pill">R <span class="skill-level developing">Developing</span></div>
+                <div class="skill-pill">R <span class="skill-level experienced">Experienced</span></div>
             </div>
 
             <h3>Software &amp; Platforms</h3>
             <div class="skill-grid">
                 <div class="skill-pill">Excel <span class="skill-level experienced">Experienced</span></div>
-                <div class="skill-pill">LSEG Workspace <span class="skill-level developing">Developing</span></div>
-                <div class="skill-pill">GitHub <span class="skill-level developing">Developing</span></div>
+                <div class="skill-pill">LSEG Workspace <span class="skill-level experienced">Experienced</span></div>
+                <div class="skill-pill">GitHub <span class="skill-level experienced">Experienced</span></div>
             </div>
 
             <h3>Data Visualisation</h3>
             <div class="skill-grid">
-                <div class="skill-pill">Data Visualisation <span class="skill-level developing">Developing</span></div>
-                <div class="skill-pill">Statistical Analysis <span class="skill-level developing">Developing</span></div>
-            </div>
-
-            <h3>Hobbies</h3>
-            <div class="skill-grid">
-                <div class="skill-pill">Add a personal touch here</div>
+                <div class="skill-pill">Matplotlib (Python) <span class="skill-level developing">Developing</span></div>
+                <div class="skill-pill">Statistical Analysis <span class="skill-level experienced">Experienced</span></div>
             </div>
 
             <h2>DataCamp Certifications</h2>
             <p>
-                Completed as part of Module 4's required training.
+                Completed as part of Module 4's required training, using Python as my chosen tool.
             </p>
-            <div class="certificate-card">
-                <span>Introduction to the Tidyverse / Introduction to Python for Data Science</span>
-                <a href="#" target="_blank">View certificate &rarr;</a>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <img src="../assets/datacamp-cert-python.jpg" alt="DataCamp certificate for Introduction to Python">
+                    <div class="cert-caption">
+                        <strong>Introduction to Python</strong>
+                        DataCamp &middot; Completed August 24, 2026
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="../assets/datacamp-cert-dataviz.jpg" alt="DataCamp certificate for Introduction to Data Visualization with Matplotlib">
+                    <div class="cert-caption">
+                        <strong>Introduction to Data Visualization with Matplotlib</strong>
+                        DataCamp &middot; Completed August 26, 2026
+                    </div>
+                </div>
             </div>
-            <div class="certificate-card">
-                <span>Introduction to Data Visualization with ggplot2 / Matplotlib</span>
-                <a href="#" target="_blank">View certificate &rarr;</a>
-            </div>
-
-            <h2>Evidence in Practice</h2>
-            <p>
-                Skills demonstrated in action across this portfolio:
-            </p>
-            <ul>
-                <li><a href="forecasting.html">Forecasting Canadian Visitor Arrivals</a> &mdash; time series analysis in R</li>
-                <li><a href="bundle-01.html">Draw it Like Playfair, Minard and Nightingale</a> &mdash; data visualisation and design principles</li>
-            </ul>
-
         </div>
 
         <hr class="task-divider">
@@ -486,12 +490,12 @@
 
         <div class="case-label">Task 3 &middot; Module 5 &middot; Reproduction &amp; Recolour</div>
         <h2 class="task-title">Reproducing a Master Visualisation</h2>
-        <p class="post-date">Posted [Month Day, Year]</p>
+        <p class="post-date">Posted August 28th, 2026</p>
 
         <img src="../assets/bundle-02-master-hero.jpg"
-             alt="Master data visualisation chosen for reproduction"
+             alt="Solo living has become the most common arrangement for households in the United States, from Our World in Data"
              class="task-image">
-        <figcaption>Master visualisation source: [Author, Year] &mdash; see reference below.</figcaption>
+        <figcaption>Master visualisation source: Samborska (2025) &mdash; see reference below.</figcaption>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
@@ -502,25 +506,27 @@
 
             <h2>Overview</h2>
             <p>
-                Summarise, in your own words, which visualisation you chose to reproduce as your
-                "master" visualisation, why you chose it, and what the exercise involved: an exact
-                reproduction, followed by a reconstruction using an alternative, more responsible
-                colour scale.
+                Since 1960, the US has experienced a decline in couples with children and a rise
+                in single-person households. The visualisation I chose to reproduce, "Solo Living
+                Has Become the Most Common Arrangement for Households in the United States"
+                (Samborska, 2025), consists of three bar charts showing the
+                share of US households by living arrangement type in 1960, 1990 and 2015. The
+                task involved an exact reproduction of the original, followed by a reconstruction
+                using an alternative, colourblind-friendly colour scale.
             </p>
 
             <h2>Datacard</h2>
-            <p>
-                A summary of the original data source used to build the reproduction.
-            </p>
             <table class="data-table">
                 <tbody>
-                    <tr><th>Title</th><td></td></tr>
-                    <tr><th>Source</th><td></td></tr>
-                    <tr><th>Time period</th><td></td></tr>
-                    <tr><th>Variables</th><td></td></tr>
-                    <tr><th>Unit(s) of measurement</th><td></td></tr>
-                    <tr><th>Access date</th><td></td></tr>
-                    <tr><th>Notes/limitations</th><td></td></tr>
+                    <tr><th>Title</th><td>Since 1960, the US has experienced a decline in couples with children and a rise in single-person households.</td></tr>
+                    <tr><th>Summary</th><td>The visualisation consists of three bar charts showing the share of US households by living arrangement type in 1960, 1990 and 2015, showing a decline in couples with children and a rise in single-person households.</td></tr>
+                    <tr><th>Source</th><td>United Nations, Department of Economic and Social Affairs, Population Division. (n.d.). Households and living arrangements data. Retrieved 26 August 2026, from https://www.un.org/development/desa/pd/data/households-and-living-arrangements-data</td></tr>
+                    <tr><th>Mapping</th><td>- X-axis: Percentage share of households
+                                            - Y-axis: The years representing each bar chart 
+                                            - Bar segments: The six nominal variables - couple with children, single parent with children, couple only, extended family, non-relatives and single person </td></tr>
+                    <tr><th>Important notes</th><td>- Chart values are the UN’s figures rounded to whole numbers, all values match the source
+                                                    - The UN dataset combines census and survey data from many countries, so methods may vary slightly by year</td></tr>
+                    <tr><th>Access</th><td>Data can be downloaded directly at https://www.un.org/development/desa/pd/data/household-size-and-composition </td></tr>
                 </tbody>
             </table>
 
@@ -532,39 +538,38 @@
             <img src="../assets/bundle-02-reproduction.jpg" alt="Reproduction of the master visualisation">
             <figcaption>Reproduction of the original, matching its colour scheme.</figcaption>
 
-            <h2>Reconstruction &mdash; Alternative Colour Scale</h2>
+            <h2>Reconstruction: Alternative Colour Scale</h2>
             <p>
-                The same visualisation, reconstructed using an alternative colour scale that follows
-                responsible use of colour guidelines (e.g. colourblind-safe, perceptually uniform,
-                avoiding misleading colour associations).
+                The same visualisation, reconstructed using a colourblind-friendly
+                colour scale.
             </p>
             <img src="../assets/bundle-02-reconstruction.jpg" alt="Reconstruction with alternative colour scale">
             <figcaption>Reconstruction using an alternative, more accessible colour scale.</figcaption>
 
             <h2>Colour Scale Rationale</h2>
             <p>
-                Explain how you developed your alternative colour scale: what guidelines you
-                followed, what problems (if any) existed with the original's colour choices, and
-                why your new scale is more responsible or accessible.
+                This new colour scale was chosen to make the visualisation more accessible to
+                people with red and green colour-blindness. Pilestone.com's colour-blindness
+                simulator was used to test the current colours and new colours, and the new
+                colours were a lot easier to differentiate. They were chosen from ColorBrewer, so
+                they're already colourblind friendly. The new colours also give the visualisation
+                some direction, as family-oriented groups are a warm red and independent
+                households are a cold blue.
             </p>
-
-            <h2>Acknowledgment of AI Tool Use</h2>
-            <div class="ai-acknowledgment">
-                <p>
-                    If generative AI tools were used at any stage of this exercise, acknowledge
-                    their use here in line with the RMIT Library's guidelines, including which tool
-                    was used, for what purpose, and to what extent.
-                </p>
-            </div>
 
             <h2>References</h2>
             <ul class="references">
                 <li>
-                    Author, A. A. (Year). <em>Title of the master visualisation</em>. Publisher/Site Name.
-                    URL
+                    Samborska, V. (2025, February 25). <em>Solo living has become the most common arrangement for households in the United States</em>. Our World in Data.
+                    https://ourworldindata.org/data-insights/solo-living-has-become-the-most-common-arrangement-for-households-in-the-united-states
                 </li>
                 <li>
-                    Company/Tool Name. (Year). <em>Name of the AI tool</em> (Version) [Large language model]. URL
+                    United Nations, Department of Economic and Social Affairs, Population Division. (2022). <em>Database on household size and composition 2022</em> [Data set].
+                    https://www.un.org/development/desa/pd/data/household-size-and-composition
+                </li>
+                <li>
+                    United Nations, Department of Economic and Social Affairs, Population Division. (n.d.). <em>Households and living arrangements data</em>. Retrieved August 26, 2026, from
+                    https://www.un.org/development/desa/pd/data/households-and-living-arrangements-data
                 </li>
             </ul>
 
