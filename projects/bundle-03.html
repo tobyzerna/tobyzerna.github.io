@@ -56,10 +56,15 @@
             font-size: clamp(32px, 5vw, 46px);
             letter-spacing: -1px;
             color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .post-date {
+            font-size: 14px;
+            color: #6b7280;
             margin-bottom: 24px;
         }
 
-        /* Same order as the homepage card: label -> heading -> image -> tags -> body text */
         .case-image {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -94,6 +99,11 @@
             color: #111827;
             margin: 40px 0 14px;
         }
+        .case-content h3 {
+            font-size: 17px;
+            color: #111827;
+            margin: 24px 0 10px;
+        }
         .case-content p {
             color: #4b5563;
             margin-bottom: 16px;
@@ -102,12 +112,100 @@
             color: #4b5563;
             margin: 0 0 16px 20px;
         }
+        .case-content li {
+            margin-bottom: 8px;
+        }
 
         .case-content img {
             width: 100%;
             border-radius: 8px;
             border: 1px solid #e5e7eb;
             margin: 24px 0 6px;
+        }
+
+        /* Side-by-side comparison (before/after, etc.) */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 20px 0 6px;
+        }
+        .comparison-grid figure { margin: 0; }
+        .comparison-grid img { margin: 0 0 6px; }
+        @media (max-width: 600px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+
+        .references {
+            padding-left: 0;
+            list-style: none;
+        }
+        .references li {
+            color: #4b5563;
+            margin-bottom: 14px;
+            text-indent: -2em;
+            padding-left: 2em;
+        }
+
+        .task-divider {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 70px 0 60px;
+        }
+
+        .task-title {
+            font-size: clamp(24px, 4vw, 32px);
+            letter-spacing: -0.5px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .task-image {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #e5e7eb;
+            margin-bottom: 10px;
+        }
+
+        /* Data verification / datacard tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+            font-size: 14px;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 10px;
+            text-align: left;
+            color: #4b5563;
+        }
+        .data-table th {
+            background: #f1f5f9;
+            color: #111827;
+            font-weight: 700;
+        }
+
+        /* Checklist for accessibility/checklist improvements */
+        .checklist {
+            list-style: none;
+            margin: 0 0 16px;
+        }
+        .checklist li {
+            padding: 10px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #4b5563;
+        }
+        .checklist li strong {
+            color: #111827;
         }
 
         footer {
@@ -131,41 +229,212 @@
 
     <div class="container">
 
-        <div class="case-label">Bundle 01 &middot; Data Visualisation</div>
-        <h1>Bundle 01</h1>
+        <!-- ================= TASK 1: MODULE 6 — ACCESSIBILITY & CHECKLIST IMPROVEMENTS ================= -->
 
-        <img src="../assets/bundle-01-hero.png"
-             alt="Main chart or dashboard for Bundle 01"
+        <div class="case-label">Task 1 &middot; Module 6 &middot; Accessibility & Improvement</div>
+        <h1>Improving the Master Visualisation</h1>
+        <p class="post-date">Posted [Month Day, Year]</p>
+
+        <img src="../assets/HHewmod6.jpg"
+             alt="Improved version of the reproduced and recoloured master visualisation, with direct colour labels"
              class="case-image">
-        <figcaption>Caption describing what this main image shows.</figcaption>
+        <figcaption>The improved version of my reproduced and recoloured Module 5 visualisation.</figcaption>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
-            <span class="tag">Python</span>
+            <span class="tag">Accessibility</span>
         </div>
 
         <div class="case-content">
 
             <h2>Overview</h2>
             <p>
-                What this project is, what question it answers, and what dataset
-                you used.
+                For this exercise I took my reproduced and recoloured "Visualizing the Richest
+                Cities in the US" visualisation from Module 5 and looked for ways to improve it.
+                I ran it through the
+                <a href="https://www.datavisualizationchecklist.com/" target="_blank">Data Visualization Checklist</a>,
+                identified an improvement based on the result, and implemented it using Photoshop.
             </p>
 
-            <h2>Approach</h2>
+            <h2>Data Visualization Checklist Review</h2>
             <p>
-                How you built it: tools, cleaning steps, chart types chosen and why.
+                Full result:
+                <a href="https://www.datavisualizationchecklist.com/datavizresult/data-viz-o7q05/" target="_blank">datavisualizationchecklist.com/datavizresult/data-viz-o7q05</a>
+            </p>
+            <p>
+                The improvement I found was how the data was labelled. I decided to remove the
+                legend and instead have labels pointing directly at the colours in the graph.
+                This was done using the original labels from the image, repositioned using
+                Photoshop.
             </p>
 
-            <h2>Findings</h2>
+            <h2>Summary of Improvements</h2>
             <p>
-                What the visualisation revealed, and why it matters.
+                Removing the legend and replacing it with direct labels means a viewer no longer
+                has to look back and forth between the chart and a separate key to work out what
+                each colour represents, making the chart faster to read and more accessible.
             </p>
 
-            <h2>Reflection</h2>
+            <h2>Before &amp; After</h2>
             <p>
-                What you'd do differently, or what you learned.
+                The reproduced and recoloured visualisation from Module 5, compared against the
+                improved version with direct labels.
             </p>
+            <div class="comparison-grid">
+                <figure>
+                    <img src="../assets/HHnew.jpg" alt="Reproduced and recoloured visualisation before improvements">
+                    <figcaption>Before &mdash; Module 5 version, with legend.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../assets/HHewmod6.jpg" alt="Improved visualisation with direct colour labels">
+                    <figcaption>After &mdash; improved version, with direct labels.</figcaption>
+                </figure>
+            </div>
+
+            <h2>References</h2>
+            <ul class="references">
+                <li>
+                    Irena. (2020, September 21). <em>Visualizing the richest cities in the US</em>. HowMuch.net.
+                    https://howmuch.net/articles/richest-cities-in-the-us
+                </li>
+            </ul>
+
+        </div>
+
+        <hr class="task-divider">
+
+        <!-- ================= TASK 2: MODULE 7 — MULTIVARIATE VISUALISATION ================= -->
+
+        <div class="case-label">Task 2 &middot; Module 7 &middot; Multivariate Visualisation</div>
+        <h2 class="task-title">Adding a Variable</h2>
+        <p class="post-date">Posted [Month Day, Year]</p>
+
+        <img src="../assets/Life-expectancy-new.jpg"
+             alt="Line graph of life expectancy by region, 2019-2023"
+             class="task-image">
+        <figcaption>My multivariate redesign, adding a 5-year time trend to the original.</figcaption>
+
+        <div class="meta">
+            <span class="tag">Data Visualisation</span>
+            <span class="tag">Multivariate</span>
+        </div>
+
+        <div class="case-content">
+
+            <h2>Overview</h2>
+            <p>
+                For this exercise I selected "Life Expectancy" from Our World in Data, a bar
+                chart showing life expectancy at birth for the World, Americas, Europe, and
+                Africa in a single year. I decided to add the last 5 years of data (2019&ndash;2023)
+                to see if there was any meaningful trend or relationship between regions over
+                time. To incorporate this additional variable I used a line graph, with year on
+                the x-axis and a separate coloured line per region, making the visualisation
+                multivariate.
+            </p>
+
+            <h2>Original Visualisation Reference</h2>
+            <ul class="references">
+                <li>
+                    Dattani, S., Rod&eacute;s-Guirao, L., Ritchie, H., Ortiz-Ospina, E., &amp; Roser, M. (2023). <em>Life expectancy</em>. Our World in Data. Retrieved 21 September 2026,
+                    https://ourworldindata.org/grapher/life-expectancy?tab=discrete-bar&amp;time=latest&amp;country=OWID_WRL~Americas~OWID_EUR~OWID_AFR
+                </li>
+            </ul>
+
+            <h2>The Added Variable</h2>
+            <p>
+                The variable I decided to include was time, specifically the last 5 years of data
+                (2019&ndash;2023), to see if there was any meaningful trend or relationship between
+                regions, rather than only comparing them at a single point in time.
+            </p>
+
+            <h2>Design Approach</h2>
+            <p>
+                I used a line graph, with region encoded by line colour, to incorporate the added
+                time variable while keeping the chart accessible and publication-ready.
+            </p>
+
+            <h2>Final Multivariate Visualisation</h2>
+            <img src="../assets/Life-expectancy-new.jpg" alt="Line graph comparing life expectancy at birth across Europe, the Americas, the World, and Africa, 2019-2023">
+            <figcaption>Life expectancy by region, 2019&ndash;2023.</figcaption>
+
+            <h2>Data Card</h2>
+            <table class="data-table">
+                <tbody>
+                    <tr><th>Title</th><td>Life Expectancy by Region (2019&ndash;2023)</td></tr>
+                    <tr><th>Summary</th><td>Line graph comparing life expectancy at birth across Europe, the Americas, the world average and Africa, 2019&ndash;2023. Europe is the highest and Africa is the lowest. All regions dip around 2020&ndash;2021, likely due to the pandemic. Original visualisation was a bar chart from Our World in Data that showed the life expectancy per region for 1 year.</td></tr>
+                    <tr><th>Data Sources</th><td>Dattani, S., Rod&eacute;s-Guirao, L., Ritchie, H., Ortiz-Ospina, E., &amp; Roser, M. (2023). Life expectancy. Our World in Data. Data adapted from Riley (2005); Zijdeman et al. (2015); HMD (2025); UN WPP (2024). Retrieved 21 September 2026, https://ourworldindata.org/grapher/life-expectancy?tab=discrete-bar&amp;time=latest&amp;country=OWID_WRL~Americas~OWID_EUR~OWID_AFR</td></tr>
+                    <tr><th>Mapping</th><td>X-axis: Year, 2019&ndash;2023<br>Y-axis: Life expectancy at birth (years)<br>Line colour: Region (Europe, Americas, World, Africa)</td></tr>
+                    <tr><th>Important Notes</th><td>Y-axis doesn't start at zero, so changes look larger than they are.<br>Figures use UN World Population Prospects estimates, so regions with incomplete death registration like Africa may be inaccurate.<br>Graph doesn't establish causation, but the 2020&ndash;2021 dip is likely due to Covid-19.</td></tr>
+                    <tr><th>Access</th><td>Data can be downloaded from https://ourworldindata.org/grapher/life-expectancy?tab=discrete-bar&amp;time=latest&amp;country=OWID_WRL~Americas~OWID_EUR~OWID_AFR</td></tr>
+                </tbody>
+            </table>
+
+            <h2>References</h2>
+            <ul class="references">
+                <li>
+                    Dattani, S., Rod&eacute;s-Guirao, L., Ritchie, H., Ortiz-Ospina, E., &amp; Roser, M. (2023). <em>Life expectancy</em>. Our World in Data. Data adapted from Riley (2005); Zijdeman et al. (2015); HMD (2025); UN WPP (2024). Retrieved 21 September 2026,
+                    https://ourworldindata.org/grapher/life-expectancy?tab=discrete-bar&amp;time=latest&amp;country=OWID_WRL~Americas~OWID_EUR~OWID_AFR
+                </li>
+            </ul>
+
+        </div>
+
+        <hr class="task-divider">
+
+        <!-- ================= TASK 3: MODULE 8 — SPATIAL VISUALISATION ================= -->
+
+        <div class="case-label">Task 3 &middot; Module 8 &middot; Spatial Visualisation</div>
+        <h2 class="task-title">Median House Prices Across Australia's Capital Cities</h2>
+        <p class="post-date">Posted [Month Day, Year]</p>
+
+        <img src="../assets/house-prices.jpg"
+             alt="Proportional symbol map of median house prices across Australia's capital cities"
+             class="task-image">
+        <figcaption>My spatial visualisation of median house prices across Australia's capital cities.</figcaption>
+
+        <div class="meta">
+            <span class="tag">Data Visualisation</span>
+            <span class="tag">Spatial Data</span>
+        </div>
+
+        <div class="case-content">
+
+            <h2>Overview</h2>
+            <p>
+                The topic I chose was median house price in each capital city of all Australian
+                states, sourced from the ABS's Total Value of Dwellings release (Table 2: Median
+                Price and Number of Transfers, Capital City and Rest of State). The spatial
+                visualisation method I used is a proportional symbol (bubble) map, built in
+                Python, with each capital city plotted at its real geographic coordinates and
+                circle size and colour both encoding its median established house price.
+            </p>
+
+            <h2>Final Spatial Visualisation</h2>
+            <img src="../assets/house-prices.jpg" alt="Proportional symbol map of median house prices across Australia's capital cities">
+            <figcaption>Median house price by Australian capital city, June 2026.</figcaption>
+
+            <h2>Data Card</h2>
+            <table class="data-table">
+                <tbody>
+                    <tr><th>Title</th><td>Median House Price by Australian Capital City (June 2026)</td></tr>
+                    <tr><th>Summary</th><td>Proportional symbol map showing median established house prices across Australia's eight capital cities. Sydney is the highest at $1.4 million, followed by Brisbane and Canberra, while Hobart and Darwin are the lowest at around $750k. Spatial method used is proportional symbol/bubble maps as well as colour.</td></tr>
+                    <tr><th>Data Sources</th><td>
+                        Australian Bureau of Statistics. (2026, September 18). Total value of dwellings, Table 2. Median price and number of transfers (capital city and rest of state). Retrieved 30 September 2026, from https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release<br><br>
+                        Johan. (2016). World.geo.json [Data set]. Github. https://github.com/johan/world.geo.json
+                    </td></tr>
+                    <tr><th>Mapping</th><td>
+                        Size: Median price of established house transfers (AUD $'000).<br>
+                        Location: Capital city by longitude and latitude.<br>
+                        Colour: Median price of established house transfers sorted into 6 classes (ColorBrewer "Reds").
+                    </td></tr>
+                    <tr><th>Important Notes</th><td>
+                        Figures are unstratified medians so don't control for differences in dwelling mix or city sizes.<br>
+                        Australia's coastline is a simplified outline, from an open-source GitHub repository so may not be accurate.<br>
+                        Location of cities were estimated using the image of Australia's coastline and may also not be accurate.
+                    </td></tr>
+                    <tr><th>Access</th><td>Data can be downloaded from Table 2. Median price and number of transfers (capital city and rest of state). https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release</td></tr>
+                </tbody>
+            </table>
 
         </div>
 
