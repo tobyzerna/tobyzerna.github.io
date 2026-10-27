@@ -56,10 +56,15 @@
             font-size: clamp(32px, 5vw, 46px);
             letter-spacing: -1px;
             color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .post-date {
+            font-size: 14px;
+            color: #6b7280;
             margin-bottom: 24px;
         }
 
-        /* Same order as the homepage card: label -> heading -> image -> tags -> body text */
         .case-image {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -94,6 +99,11 @@
             color: #111827;
             margin: 40px 0 14px;
         }
+        .case-content h3 {
+            font-size: 17px;
+            color: #111827;
+            margin: 24px 0 10px;
+        }
         .case-content p {
             color: #4b5563;
             margin-bottom: 16px;
@@ -101,6 +111,9 @@
         .case-content ul, .case-content ol {
             color: #4b5563;
             margin: 0 0 16px 20px;
+        }
+        .case-content li {
+            margin-bottom: 8px;
         }
 
         .case-content img {
@@ -110,6 +123,91 @@
             margin: 24px 0 6px;
         }
 
+        /* Side-by-side comparison (before/after, etc.) */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 20px 0 6px;
+        }
+        .comparison-grid figure { margin: 0; }
+        .comparison-grid img { margin: 0 0 6px; }
+        @media (max-width: 600px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+
+        .references {
+            padding-left: 0;
+            list-style: none;
+        }
+        .references li {
+            color: #4b5563;
+            margin-bottom: 14px;
+            text-indent: -2em;
+            padding-left: 2em;
+        }
+
+        .task-divider {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 70px 0 60px;
+        }
+
+        .task-title {
+            font-size: clamp(24px, 4vw, 32px);
+            letter-spacing: -0.5px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .task-image {
+            width: 100%;
+            max-width: 480px;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #e5e7eb;
+            margin-bottom: 10px;
+        }
+
+        /* Data verification / datacard tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+            font-size: 14px;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 8px 10px;
+            text-align: left;
+            color: #4b5563;
+        }
+        .data-table th {
+            background: #f1f5f9;
+            color: #111827;
+            font-weight: 700;
+        }
+
+        /* Checklist for accessibility/checklist improvements */
+        .checklist {
+            list-style: none;
+            margin: 0 0 16px;
+        }
+        .checklist li {
+            padding: 10px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: white;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #4b5563;
+        }
+        .checklist li strong {
+            color: #111827;
+        }
+
         footer {
             background: #111827;
             border-top: 1px solid #374151;
@@ -117,6 +215,21 @@
             text-align: center;
             padding: 25px;
             font-size: 13px;
+        }
+
+        /* Embedded interactive apps */
+        .embed-frame {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            background: #ffffff;
+            margin: 16px 0 6px;
+        }
+        .embed-note {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 24px;
         }
     </style>
 </head>
@@ -131,16 +244,15 @@
 
     <div class="container">
 
-        <div class="case-label">Bundle 01 &middot; Data Visualisation</div>
-        <h1>Bundle 01</h1>
+        <!-- ================= TASK 1: MODULE 9 - MAKE IT INTERACTIVE ================= -->
 
-        <img src="../assets/bundle-01-hero.png"
-             alt="Main chart or dashboard for Bundle 01"
-             class="case-image">
-        <figcaption>Caption describing what this main image shows.</figcaption>
+        <div class="case-label">Task 1 &middot; Module 9 &middot; Interactive Visualisation</div>
+        <h1>Interactive Map of Median House Prices</h1>
+        <p class="post-date">Posted [Month Day, Year]</p>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
+            <span class="tag">Interactivity</span>
             <span class="tag">Python</span>
         </div>
 
@@ -148,24 +260,213 @@
 
             <h2>Overview</h2>
             <p>
-                What this project is, what question it answers, and what dataset
-                you used.
+                I made my Module 8 map of median house prices across Australia's eight capital
+                cities interactive. It uses the ABS Total Value of Dwellings data for June 2026
+                and is built in Python with Plotly. The feedback on my Module 8 map said that using
+                both circle size and colour for the same value added unnecessary complexity, that
+                the legend could be simpler, and that the city coordinates could be more accurate.
+                So I removed the size encoding, kept colour as the only encoding of price,
+                simplified the legend and moved each city to a more accurate central point.
             </p>
 
-            <h2>Approach</h2>
+            <h2>Interactive Design Choice</h2>
             <p>
-                How you built it: tools, cleaning steps, chart types chosen and why.
+                I added two interactive features. Hovering over a city shows its exact median
+                price, and clicking an entry in the legend hides or shows every city in that price
+                class. Hover is a details on demand interaction, which Yi et al. (2007) call
+                Abstract/Elaborate. It let me remove the printed prices from the map, so only the
+                city names and colours remain and the map stays clean while the exact values are
+                still available. The legend click is a Filter interaction. It lets a viewer focus
+                on one price class, for example only the cities over $1.3m. Both choices are
+                intentional because the map has only eight points, so the viewer can explore it
+                without any complicated controls.
             </p>
 
-            <h2>Findings</h2>
-            <p>
-                What the visualisation revealed, and why it matters.
+            <h2>Interactive Visualisation</h2>
+            <iframe class="embed-frame"
+                    src="https://01a175e1-ad1b-95d7-13c0-733c4d029583.share.connect.posit.cloud/"
+                    title="Interactive map of median house prices in Australian capital cities, June 2026"
+                    loading="lazy"></iframe>
+            <p class="embed-note">
+                Interactive map hosted on Posit Connect Cloud.
+                <a href="https://01a175e1-ad1b-95d7-13c0-733c4d029583.share.connect.posit.cloud/" target="_blank" rel="noopener">Open it in a new tab</a>.
             </p>
 
-            <h2>Reflection</h2>
+            <h2>Accessibility</h2>
             <p>
-                What you'd do differently, or what you learned.
+                Colour is the only encoding of price, so I used a ColorBrewer sequential Reds
+                scale where a darker colour means a higher price. The legend shows the real dollar
+                range for each class, and every city has a printed name so the map can be read
+                without hovering. Text is dark on a light background and the exact price is
+                available in the hover box. The embed has a descriptive title for screen readers.
+                One limitation is that hover does not work on devices that cannot hover, which is
+                why the names and legend are always visible.
             </p>
+
+            <h2>Data Card</h2>
+            <table class="data-table">
+                <tbody>
+                    <tr><th>Title</th><td>Median House Price by Australian Capital City (June 2026), Interactive Map</td></tr>
+                    <tr><th>Summary</th><td>Interactive map of median established house prices across Australia's eight capital cities for June 2026. Sydney is the highest at about $1.49 million, while Hobart and Darwin are the lowest at around $750k. Hovering over a city shows its exact price, and clicking a legend entry hides or shows every city in that price class.</td></tr>
+                    <tr><th>Data Sources</th><td>
+                        Australian Bureau of Statistics. (2026, September 18). Total value of dwellings, Table 2. Median price and number of transfers (capital city and rest of state). Retrieved 30 September 2026, from https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release<br><br>
+                        Johan. (2016). World.geo.json [Data set]. GitHub. https://github.com/johan/world.geo.json
+                    </td></tr>
+                    <tr><th>Mapping</th><td>
+                        Location: Capital city by longitude and latitude.<br>
+                        Colour: Median price of established house transfers sorted into 6 classes (ColorBrewer "Reds").<br>
+                        Label: City name, with the exact price shown on hover.<br>
+                        Size: Constant, so colour is the only visual encoding of price.
+                    </td></tr>
+                    <tr><th>Important Notes</th><td>
+                        Figures are unstratified medians so don't control for differences in dwelling mix or city sizes.<br>
+                        Australia's coastline is a simplified outline from an open-source GitHub repository, so may not be accurate.<br>
+                        City locations are approximate central points and may not be exact.<br>
+                        Exact prices only show on hover, so they are not available on devices that can't hover.
+                    </td></tr>
+                    <tr><th>Access</th><td>
+                        Data can be downloaded from Table 2. Median price and number of transfers (capital city and rest of state). https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release<br>
+                        Interactive map: https://01a175e1-ad1b-95d7-13c0-733c4d029583.share.connect.posit.cloud/
+                    </td></tr>
+                </tbody>
+            </table>
+
+            <h2>References</h2>
+            <ul class="references">
+                <li>
+                    Australian Bureau of Statistics. (2026, September 18). <em>Total value of dwellings, Table 2. Median price and number of transfers (capital city and rest of state)</em>.
+                    https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release
+                </li>
+                <li>
+                    Brewer, C. (n.d.). <em>ColorBrewer: Color advice for maps</em>. https://colorbrewer2.org
+                </li>
+                <li>
+                    Johan. (2016). <em>World.geo.json</em> [Data set]. GitHub. https://github.com/johan/world.geo.json
+                </li>
+                <li>
+                    Plotly. (n.d.). <em>Plotly Python graphing library</em>. https://plotly.com/python/
+                </li>
+                <li>
+                    Posit. (n.d.). <em>Publish a Jupyter notebook to Connect Cloud</em>.
+                    https://docs.posit.co/connect-cloud/how-to/python/jupyter.html
+                </li>
+                <li>
+                    Yi, J. S., Kang, Y. A., &amp; Stasko, J. (2007). Toward a deeper understanding of the role of interaction in information visualization.
+                    <em>IEEE Transactions on Visualization and Computer Graphics, 13</em>(6), 1224&ndash;1231.
+                </li>
+            </ul>
+
+        </div>
+
+        <hr class="task-divider">
+
+        <!-- ================= TASK 2: MODULE 10 - MULTIPLOT IT ================= -->
+
+        <div class="case-label">Task 2 &middot; Module 10 &middot; Multiplot Display</div>
+        <h2 class="task-title">Median House Prices Over Time</h2>
+        <p class="post-date">Posted [Month Day, Year]</p>
+
+        <div class="meta">
+            <span class="tag">Data Visualisation</span>
+            <span class="tag">Interactivity</span>
+            <span class="tag">Python</span>
+        </div>
+
+        <div class="case-content">
+
+            <h2>Overview</h2>
+            <p>
+                For Module 10 I extended my Module 9 map with a slider that moves between June
+                2016, June 2021 and June 2026, using the same ABS data. As the slider moves, the
+                circles change colour to show how the median house price in each capital city
+                changed over ten years. It is built in Python with Plotly.
+            </p>
+
+            <h2>Layout and Interactivity</h2>
+            <p>
+                The coastline, city positions and layout stay the same in every period, so only the
+                colours change and a viewer can compare periods directly. The colour classes are
+                fixed across all three periods, so a colour means the same price in 2016, 2021 and
+                2026. I used wider class breaks than in Module 9, so that the 2016 map does not
+                show every city in the lightest colour. The slider is an Explore interaction (Yi et
+                al., 2007), and hovering over a city shows its exact price for the selected period.
+                With only three periods, a slider lets the viewer control the pace and switch
+                between years rather than watching an animation.
+            </p>
+
+            <h2>Multiplot Visualisation</h2>
+            <iframe class="embed-frame"
+                    src="PASTE-MODULE-10-LINK-HERE"
+                    title="Interactive map with a slider showing median house prices in Australian capital cities for June 2016, 2021 and 2026"
+                    loading="lazy"></iframe>
+            <p class="embed-note">
+                Interactive map hosted on Posit Connect Cloud.
+            </p>
+
+            <h2>Accessibility</h2>
+            <p>
+                As in Module 9, colour is the only encoding of price, so I used a ColorBrewer
+                sequential Reds scale where a darker colour means a higher price. The legend shows
+                the real dollar range for each class and every city has a printed name. The slider
+                has labelled steps for each period, and the exact price is available in the hover
+                box. The embed has a descriptive title for screen readers. Hover does not work on
+                devices that cannot hover, so the colours and legend carry the main message.
+            </p>
+
+            <h2>Data Card</h2>
+            <table class="data-table">
+                <tbody>
+                    <tr><th>Title</th><td>Median House Price by Australian Capital City (June 2016, 2021 and 2026), Interactive Map with Slider</td></tr>
+                    <tr><th>Summary</th><td>Interactive map showing how median established house prices changed across Australia's eight capital cities between June 2016, June 2021 and June 2026. Prices rose in every city. Brisbane (from $495k to $1,155k) and Adelaide (from $440k to $975k) more than doubled, while Melbourne and Darwin rose the least, at around 40%. A slider switches the period, and hovering over a city shows its exact price for that period.</td></tr>
+                    <tr><th>Data Sources</th><td>
+                        Australian Bureau of Statistics. (2026, September 18). Total value of dwellings, Table 2. Median price and number of transfers (capital city and rest of state). Retrieved 30 September 2026, from https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release<br><br>
+                        Johan. (2016). World.geo.json [Data set]. GitHub. https://github.com/johan/world.geo.json
+                    </td></tr>
+                    <tr><th>Mapping</th><td>
+                        Location: Capital city by longitude and latitude.<br>
+                        Colour: Median price of established house transfers sorted into 6 classes (ColorBrewer "Reds"). The classes are fixed, so a colour means the same price in every period.<br>
+                        Slider: Selects the period (June 2016, June 2021 or June 2026).<br>
+                        Label: City name, with the exact price shown on hover.<br>
+                        Size: Constant, so colour is the only visual encoding of price.
+                    </td></tr>
+                    <tr><th>Important Notes</th><td>
+                        Figures are unstratified medians so don't control for differences in dwelling mix or city sizes.<br>
+                        Prices are nominal and not adjusted for inflation, so some of the rise reflects general price growth.<br>
+                        Only three periods are shown, so changes between them are not visible.<br>
+                        Australia's coastline is a simplified outline from an open-source GitHub repository, so may not be accurate.<br>
+                        City locations are approximate central points and may not be exact.
+                    </td></tr>
+                    <tr><th>Access</th><td>
+                        Data can be downloaded from Table 2. Median price and number of transfers (capital city and rest of state). https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release<br>
+                        Interactive map: PASTE-MODULE-10-LINK-HERE
+                    </td></tr>
+                </tbody>
+            </table>
+
+            <h2>References</h2>
+            <ul class="references">
+                <li>
+                    Australian Bureau of Statistics. (2026, September 18). <em>Total value of dwellings, Table 2. Median price and number of transfers (capital city and rest of state)</em>.
+                    https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release
+                </li>
+                <li>
+                    Brewer, C. (n.d.). <em>ColorBrewer: Color advice for maps</em>. https://colorbrewer2.org
+                </li>
+                <li>
+                    Johan. (2016). <em>World.geo.json</em> [Data set]. GitHub. https://github.com/johan/world.geo.json
+                </li>
+                <li>
+                    Plotly. (n.d.). <em>Plotly Python graphing library</em>. https://plotly.com/python/
+                </li>
+                <li>
+                    Posit. (n.d.). <em>Publish a Jupyter notebook to Connect Cloud</em>.
+                    https://docs.posit.co/connect-cloud/how-to/python/jupyter.html
+                </li>
+                <li>
+                    Yi, J. S., Kang, Y. A., &amp; Stasko, J. (2007). Toward a deeper understanding of the role of interaction in information visualization.
+                    <em>IEEE Transactions on Visualization and Computer Graphics, 13</em>(6), 1224&ndash;1231.
+                </li>
+            </ul>
 
         </div>
 
