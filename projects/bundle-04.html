@@ -248,7 +248,7 @@
 
         <div class="case-label">Task 1 &middot; Module 9 &middot; Interactive Visualisation</div>
         <h1>Interactive Map of Median House Prices</h1>
-        <p class="post-date">Posted [Month Day, Year]</p>
+        <p class="post-date">Posted October 27, 2026</p>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
@@ -261,25 +261,15 @@
             <h2>Overview</h2>
             <p>
                 I made my Module 8 map of median house prices across Australia's eight capital
-                cities interactive. It uses the ABS Total Value of Dwellings data for June 2026
-                and is built in Python with Plotly. The feedback on my Module 8 map said that using
-                both circle size and colour for the same value added unnecessary complexity, that
-                the legend could be simpler, and that the city coordinates could be more accurate.
-                So I removed the size encoding, kept colour as the only encoding of price,
-                simplified the legend and moved each city to a more accurate central point.
+                cities interactive using a hover function for the plots and filter for the legend.
             </p>
 
             <h2>Interactive Design Choice</h2>
             <p>
-                I added two interactive features. Hovering over a city shows its exact median
-                price, and clicking an entry in the legend hides or shows every city in that price
-                class. Hover is a details on demand interaction, which Yi et al. (2007) call
-                Abstract/Elaborate. It let me remove the printed prices from the map, so only the
-                city names and colours remain and the map stays clean while the exact values are
-                still available. The legend click is a Filter interaction. It lets a viewer focus
-                on one price class, for example only the cities over $1.3m. Both choices are
-                intentional because the map has only eight points, so the viewer can explore it
-                without any complicated controls.
+                The interactive feature I will add is a hover function that shows the price of 
+                when you hover over the city, so the map isn’t as cluttered. Yi et al. (2007) 
+                calls this interaction technique Abstract/Elaborate. The legend click is a Filter 
+                interaction, letting the viewer focus on one price class, while minimising complication. 
             </p>
 
             <h2>Interactive Visualisation</h2>
@@ -291,18 +281,7 @@
                 Interactive map hosted on Posit Connect Cloud.
                 <a href="https://01a175e1-ad1b-95d7-13c0-733c4d029583.share.connect.posit.cloud/" target="_blank" rel="noopener">Open it in a new tab</a>.
             </p>
-
-            <h2>Accessibility</h2>
-            <p>
-                Colour is the only encoding of price, so I used a ColorBrewer sequential Reds
-                scale where a darker colour means a higher price. The legend shows the real dollar
-                range for each class, and every city has a printed name so the map can be read
-                without hovering. Text is dark on a light background and the exact price is
-                available in the hover box. The embed has a descriptive title for screen readers.
-                One limitation is that hover does not work on devices that cannot hover, which is
-                why the names and legend are always visible.
-            </p>
-
+            
             <h2>Data Card</h2>
             <table class="data-table">
                 <tbody>
@@ -338,21 +317,10 @@
                     https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release
                 </li>
                 <li>
-                    Brewer, C. (n.d.). <em>ColorBrewer: Color advice for maps</em>. https://colorbrewer2.org
-                </li>
-                <li>
                     Johan. (2016). <em>World.geo.json</em> [Data set]. GitHub. https://github.com/johan/world.geo.json
                 </li>
                 <li>
-                    Plotly. (n.d.). <em>Plotly Python graphing library</em>. https://plotly.com/python/
-                </li>
-                <li>
-                    Posit. (n.d.). <em>Publish a Jupyter notebook to Connect Cloud</em>.
-                    https://docs.posit.co/connect-cloud/how-to/python/jupyter.html
-                </li>
-                <li>
                     Yi, J. S., Kang, Y. A., &amp; Stasko, J. (2007). Toward a deeper understanding of the role of interaction in information visualization.
-                    <em>IEEE Transactions on Visualization and Computer Graphics, 13</em>(6), 1224&ndash;1231.
                 </li>
             </ul>
 
@@ -364,7 +332,7 @@
 
         <div class="case-label">Task 2 &middot; Module 10 &middot; Multiplot Display</div>
         <h2 class="task-title">Median House Prices Over Time</h2>
-        <p class="post-date">Posted [Month Day, Year]</p>
+        <p class="post-date">Posted October 27th, 2026</p>
 
         <div class="meta">
             <span class="tag">Data Visualisation</span>
@@ -377,21 +345,9 @@
             <h2>Overview</h2>
             <p>
                 For Module 10 I extended my Module 9 map with a slider that moves between June
-                2016, June 2021 and June 2026, using the same ABS data. As the slider moves, the
+                2016, June 2021 and June 2026. As the slider moves, the
                 circles change colour to show how the median house price in each capital city
                 changed over ten years. It is built in Python with Plotly.
-            </p>
-
-            <h2>Layout and Interactivity</h2>
-            <p>
-                The coastline, city positions and layout stay the same in every period, so only the
-                colours change and a viewer can compare periods directly. The colour classes are
-                fixed across all three periods, so a colour means the same price in 2016, 2021 and
-                2026. I used wider class breaks than in Module 9, so that the 2016 map does not
-                show every city in the lightest colour. The slider is an Explore interaction (Yi et
-                al., 2007), and hovering over a city shows its exact price for the selected period.
-                With only three periods, a slider lets the viewer control the pace and switch
-                between years rather than watching an animation.
             </p>
 
             <h2>Multiplot Visualisation</h2>
@@ -403,21 +359,11 @@
                 Interactive map hosted on Posit Connect Cloud.
             </p>
 
-            <h2>Accessibility</h2>
-            <p>
-                As in Module 9, colour is the only encoding of price, so I used a ColorBrewer
-                sequential Reds scale where a darker colour means a higher price. The legend shows
-                the real dollar range for each class and every city has a printed name. The slider
-                has labelled steps for each period, and the exact price is available in the hover
-                box. The embed has a descriptive title for screen readers. Hover does not work on
-                devices that cannot hover, so the colours and legend carry the main message.
-            </p>
-
             <h2>Data Card</h2>
             <table class="data-table">
                 <tbody>
                     <tr><th>Title</th><td>Median House Price by Australian Capital City (June 2016, 2021 and 2026), Interactive Map with Slider</td></tr>
-                    <tr><th>Summary</th><td>Interactive map showing how median established house prices changed across Australia's eight capital cities between June 2016, June 2021 and June 2026. Prices rose in every city. Brisbane (from $495k to $1,155k) and Adelaide (from $440k to $975k) more than doubled, while Melbourne and Darwin rose the least, at around 40%. A slider switches the period, and hovering over a city shows its exact price for that period.</td></tr>
+                    <tr><th>Summary</th><td>Interactive map shows how median established house prices changed across Australia’s eight capital cities between June 2016, June 2021 and June 2026. A slider at the bottom changes the period, and hovering over a city shows its exact price for that period.</td></tr>
                     <tr><th>Data Sources</th><td>
                         Australian Bureau of Statistics. (2026, September 18). Total value of dwellings, Table 2. Median price and number of transfers (capital city and rest of state). Retrieved 30 September 2026, from https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release<br><br>
                         Johan. (2016). World.geo.json [Data set]. GitHub. https://github.com/johan/world.geo.json
@@ -450,21 +396,7 @@
                     https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/total-value-dwellings/latest-release
                 </li>
                 <li>
-                    Brewer, C. (n.d.). <em>ColorBrewer: Color advice for maps</em>. https://colorbrewer2.org
-                </li>
-                <li>
                     Johan. (2016). <em>World.geo.json</em> [Data set]. GitHub. https://github.com/johan/world.geo.json
-                </li>
-                <li>
-                    Plotly. (n.d.). <em>Plotly Python graphing library</em>. https://plotly.com/python/
-                </li>
-                <li>
-                    Posit. (n.d.). <em>Publish a Jupyter notebook to Connect Cloud</em>.
-                    https://docs.posit.co/connect-cloud/how-to/python/jupyter.html
-                </li>
-                <li>
-                    Yi, J. S., Kang, Y. A., &amp; Stasko, J. (2007). Toward a deeper understanding of the role of interaction in information visualization.
-                    <em>IEEE Transactions on Visualization and Computer Graphics, 13</em>(6), 1224&ndash;1231.
                 </li>
             </ul>
 
